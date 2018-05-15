@@ -58,10 +58,6 @@ div.main
     text-decoration: none;
 }
 
-.navbutton:link {
-    color: red;
-}
-
 a:hover:not(.logobut):not(#title)
 {
     background-color: #00ff4069;
