@@ -1,0 +1,154 @@
+<!DOCTYPE html
+PUBLIC "-//W3C/DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>LBC</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$("a").on('click', function (event) {
+				if (this.hash !== "") {
+					event.preventDefault();
+					var hash = this.hash;
+					$('html, body').animate(
+						{
+							scrollTop: $(hash).offset().top
+						}, 600, function () {
+							window.location.hash = hash;
+						});
+				}
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<div id="navbar">
+		<div id="logo">
+			<img id="logoimg" src="logos/logo.png" alt="LBC Logo" />
+		</div>
+		<!-- Collapsible menu bar - only displayed on mobile screens -->
+		<button class="col">
+			<div class="mnbtn" onclick="change(this)">
+				<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+			</div>
+		</button>
+		<!-- Main navigation bar - only displayed on larger desktop screens -->
+		<div id="buttons">
+			<div class="navbutton">
+				<a id="nav" href="#home">Home</a>
+			</div>
+			<div class="navbutton">
+				<a id="nav" href="#wwd">What We Do</a>
+			</div>
+			<div class="navbutton">
+				<a id="nav" href="#areas">Areas We Cover</a>
+			</div>
+			<div class="navbutton">
+				<a id="nav" href="#contact">Contact Us</a>
+			</div>
+		</div>
+	</div>
+	<!-- Javascript function operating the collapsible menu button 
+	When the menu button is clicked on, the main navigation bar buttons appear in list form, 
+	when the menu button is clicked again, the main navigation bar buttons disappear.
+	-->
+	<script>
+		var acc = document.getElementsByClassName("col");
+		var i;
+		for (i = 0; i < acc.length; i++) {
+			acc[i].addEventListener("click", function () {
+
+				var panel = this.nextElementSibling;
+				if (panel.style.display === "block") {
+					panel.style.display = "none";
+				}
+				else {
+					panel.style.display = "block";
+				}
+			});
+		}
+
+		function change(x) {
+			x.classList.toggle("change");
+		}
+	</script>
+
+	<div class="page" id="home">
+		<div class="main">
+			<h1 style="color: white;">Welcome to Leicester Building Company</h1>
+			<h2 id="subtitle">Take a look around and be amazed at how we can transform your home...</h2>
+		</div>
+	</div>
+
+	<div class="page" id="wwd">
+		<div class="main">
+			<h2 style="color: white;">What We Do</h2>
+			<p class="main">We are a small family run business that are small enough to care about what you want, but big enough to cope with residential
+				building projects. We have been established recently but collectively we have in excess over 20 years’ experience in
+				the building trade from bathroom installations to new developments.</p>
+			<br />
+			<div id="gallery">
+				<img class="gimg" src="img/IMG_20170729_183533.jpg" alt="">
+				<img class="gimg" src="img/IMG_20170802_100737.jpg" alt="">
+				<img class="gimg" src="img/IMG_20171221_104833.jpg" alt="">
+			</div>
+			<p id="para">We at Leicester Building Co. are dedicated to making your home or building truly esquisite and perfect for home owners looking to upgrade their homes to high standards, family homes for first time buyers and people looking to update their homes by making them more accessible for those with disabilities.</p>
+		</div>
+	</div>
+
+	<div class="page" id="areas">
+		<div class="main">
+			<h2 style="color: white;">Areas We Cover</h2>
+			<p class="para">As our name suggests, we are based in Leicester, serving the local LE2 area of Leicester. We </p>
+			<br />
+			<div id="gallery">
+				<img class="map" src="img/map.png" />
+			</div>
+			<p class="para">justo posuere.</p>
+		</div>
+	</div>
+
+	<div class="lastpage" id="contact">
+		<div class="main">
+			<h2 style="color: white;">Contact Us</h2>
+			<p class="main">Wish to make enquiries? Send us a message and receive your quote free of charge!</p>
+			<div class="container">
+				<form action="/action_page.php">
+					<label style="color: white;" for="name">Name</label>
+					<input type="text" id="name" name="name" placeholder="Your name..">
+					<label style="color: white;" for="subject">Subject</label>
+					<textarea id="subject" name="subject" placeholder="Write something.." style="height:100px"></textarea>
+					<input type="submit" value="Submit">
+				</form>
+			</div>
+			<br />
+			<p id="para"></p>
+		</div>
+	</div>
+
+	<div id="footer">
+		<p>Leicester Building Co. © 2018
+			<a class="links" href="privacy.docx">Privacy Policy</a>
+			<a class="links" href="sitemap.xml">Sitemap</a>
+		</p>
+		<div id="smdiv">
+			<a href="https://www.facebook.com">
+				<img class="sm" src="logos/fb.png" />
+			</a>
+			<a href="https://www.twitter.com">
+				<img class="sm" src="logos/tw.png" />
+			</a>
+			<a href="https://www.instagram.com">
+				<img class="sm" src="logos/ig.png" />
+			</a>
+		</div>
+	</div>
+</body>
+
+</html>
